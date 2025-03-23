@@ -1,0 +1,24 @@
+{
+  "name": "halves_frontend",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "^1.2.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "@types/node": "^22.13.11",
+    "firebase-admin": "^13.2.0",
+    "google-auth-library": "^9.15.1",
+    "js-crypto-key-utils": "^1.0.7"
+  },
+  "scripts": {
+    "test": "bun test",
+    "continuous": "bun test --watch",
+    "hot": "bun run --hot index.ts",
+    "start": "bun run index.ts"
+  }
+}

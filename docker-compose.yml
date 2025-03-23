@@ -1,0 +1,23 @@
+services:
+  webhook:
+    build: .
+    ports:
+      - "${EXTERNAL_PORT:-8000}:8000"
+    environment:
+      - PORT=8000
+      - FIREBASE_SA_BASE64=${FIREBASE_SA_BASE64}
+      - APNS_P8_BASE64=${APNS_P8_BASE64}
+      - APNS_TEAM_ID=${APNS_TEAM_ID}
+      - APNS_KEY_ID=${APNS_KEY_ID}
+      - APNS_BUNDLE_ID=${APNS_BUNDLE_ID}
+      - APNS_PRODUCTION=${APNS_PRODUCTION}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+      - SUPABASE_ADMIN_KEY=${SUPABASE_ADMIN_KEY}
+    restart: unless-stopped
+    networks:
+      - webhook-net
+
+networks:
+  webhook-net:
+    driver: bridge
